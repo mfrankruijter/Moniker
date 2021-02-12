@@ -1,0 +1,15 @@
+{
+    "fetchFrequency": 10,
+    "fetchInputs": {
+        "input-file": "https://pastebin.com/raw/LfNbBpEm"
+    },
+    "inputs": {
+        "input-file": "example-files\\input-file.txt"
+    },
+    "outputs": {
+        "someoutput": {
+            "file": "example-files\\output-file.txt",
+            "text": "PulseBear has written {input-file} scripts today"
+        }
+    }
+}
