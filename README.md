@@ -1,3 +1,5 @@
+[![Buy me a coffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg)](buymeacoff.ee/pulsebear)
+
 # Moniker - Active file manipulator
 
 This package contains a standalone script which allows the user to configure 
