@@ -1,4 +1,4 @@
-[![Buy me a coffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg)](buymeacoff.ee/pulsebear)
+[![Buy me a coffee](https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg)](https://buymeacoff.ee/pulsebear)
 
 # Moniker - Active file manipulator
 
