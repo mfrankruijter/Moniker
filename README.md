@@ -19,7 +19,7 @@ and `execute_moniker_foreground.bat` files in a text editor and change the
 location in those files.
 
 Once Python in installed go to 
-(the latest release)[https://github.com/mfrankruijter/Moniker/releases/latest]
+[the latest release](https://github.com/mfrankruijter/Moniker/releases/latest)
 and download the ZIP file by clicking on `Source code (zip)`. Unpack this ZIP 
 file to the desired location.
 
