@@ -67,6 +67,49 @@ In the following example the contents of the endpoint are being written to
 }
 ```
 
+### customInputs
+Custom inputs can be created to import information from for example an API.
+These custom inputs can return multiple inputs to the main script.
+A custom input can be configured as follows, in the monikers.json file add an 
+additional node to the main configuration with the name `customInputs`:
+```json
+{
+    "customInputs": {
+        "my-custom-type": {
+            "type": "mycustomtype",
+            "config": {...myconfig}
+        }
+    }
+}
+```
+
+The name of the first key `my-custom-type` will represent the prefix in the output.
+The value of `type` will be the reference to the custom handler (up next). The `config`
+node will be passed to the custom handler to pass for example API keys.
+
+To create a custom handler, add a new class to the `lib/handlers/__init__.py` file:
+```python
+class MyCustomHandler():
+    def handle(self, customKey, config={}):
+        resultSet = {}
+        # Your custom logic here
+        return resultSet
+```
+
+The `resultSet` is expected to be a key-value(`string`) pair.
+Then the custom handler can be registered in `moniker.py` by registering it by a key as 
+the second parameter of the Handler initiation:
+```python
+handler = Handler(
+    Config(configFile), 
+    {
+        "mycustomtype": MyCustomHandler(),
+    }
+)
+```
+
+Now the handler will be called in each iteration.
+
 ### fetchFrequency
 The `fetchFrequency` can be configured to determine the polling rate of any URL 
 being called. Every increment is one second. So the default of `10` will result 
@@ -106,6 +149,27 @@ The outputs can have an unlimited amount of entries.
     }
 }
 ```
+
+It is also possible to conditionally give an alternative result as output when a field is empty.
+This can be done by also adding the `onEmpty` configuration to the output entry.
+
+```json
+{
+    "outputs": {
+        "someoutput": {
+            "file": "example-files\\output-file.txt",
+            "text": "PulseBear has written {input-file} scripts today",
+            "onEmpty": {
+                "field": "input-file",
+                "result": "No scripts today!"
+            }
+        }
+    }
+}
+```
+
+In the above example, the result in the output file will be `No scripts today!` when the field
+`input-file` is empty.
 
 ## Running the script
 
